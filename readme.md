@@ -1,6 +1,6 @@
  # ASAP Project
 
- ## IsThatCake? Project
+ ## IsThatCake? 
 
 
 ## Project Title:IsThatCake?
@@ -14,15 +14,10 @@ This project focuses on buliding a website that shows the list of disgusting-loo
 -Cake Gallery: A collection of disgusting/distrubing looking images of cakes. • Filter option: Filter options to filter for categories like "The Most Weird", "The Worst designed", "The ugliest cakes ", etc.
 
 -Make Your Own Cake: Users can upload their own pictures of their weirdest and disgusting-looking cake images,videos for the whole community to share.
+
 -Comment and Rate: Users can comment on and rate cakes as they think them to be the gross or weird.
  
-## Tech Stack
 
-Front-end: HTML,CSS,JavaScript
-
-
-Back-end: Node.js with Express.js
-Database: MongoDB
  
  
 ## Why This Project
