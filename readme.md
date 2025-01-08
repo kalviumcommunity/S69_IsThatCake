@@ -1,9 +1,6 @@
  # ASAP Project
 
- ## IsThatCake? 
-
-
-## Project Title:IsThatCake?
+ ## Project Title: IsThatCake?
 
 ## Project Overview
 
