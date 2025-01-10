@@ -1,0 +1,20 @@
+{
+  "name": "s69_isthatcake",
+  "version": "1.0.0",
+  "description": "This project focuses on buliding a website that shows the list of disgusting-looking cakes.Cakes are always sweet and eye-pleasing for any occassion be it birthdays,functions,anniverseries etc. The main intention behind this web site is the display of the cakes that appear quite different from what we traditionally consider, for instance, unattractive in look, rather odd-looking. As cakes often evoke the notions of celebrations and an attractive look, the project aimed at providing humorous, yet out of the usual sense, where it presents weird-looking cakes against conventional beauty measures. A webpage that is set to be the collection of funny, weird or disturbing cake designs, allowing readers and/or web surfers an opportunity to read, cringe, and then marvel at these strange cake ideas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

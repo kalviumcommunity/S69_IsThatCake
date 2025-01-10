@@ -8,7 +8,8 @@ This project focuses on buliding a website that shows the list of disgusting-loo
 
 ## Key Features
 
--Cake Gallery: A collection of disgusting/distrubing looking images of cakes. • Filter option: Filter options to filter for categories like "The Most Weird", "The Worst designed", "The ugliest cakes ", etc.
+-Cake Gallery: A collection of disgusting/distrubing looking images of cakes. 
+• Filter option: Filter options to filter for categories like "The Most Weird", "The Worst designed", "The ugliest cakes ", etc.
 
 -Make Your Own Cake: Users can upload their own pictures of their weirdest and disgusting-looking cake images,videos for the whole community to share.
 
