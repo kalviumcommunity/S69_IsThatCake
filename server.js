@@ -12,7 +12,7 @@ mongoose.connect(MONGO_URI).then(()=>console.log("Connected to database.")).catc
 
 app.get('/', (req, res) => {
   const status= mongoose.connection.readyState===1 ? "Connected" : "Not Connected";
-  res.status(200).json({message: "Welcome to WhatTheWoof", database: status});
+  res.status(200).json({message: "Welcome to IsThatCake", database: status});
 });
 
 app.listen(PORT, () => {
