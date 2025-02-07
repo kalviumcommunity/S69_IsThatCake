@@ -1,0 +1,15 @@
+{
+  "name": "ASAP",
+  "version": "1",
+  "items": [],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "ASAP",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}
