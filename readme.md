@@ -23,6 +23,10 @@ This project focuses on buliding a website that shows the list of disgusting-loo
 This project excites me since it's such a fun and creative twist on something so traditional, like a cake website. What's different with this project, though, is that it puts forward cakes deliberately weird and the most disturbing cakes in a comical sense. It interests me because it lets me do humorous and niche content while being able to sharpen my full-stack web development. I will work on user interaction features like photo uploads, ratings, and comments. I will also gain experience in handling media and integrating cloud storage. The unique focus of the project on weird cakes will make it a fun and engaging experience for users.
 
 
-### deployment link:
+###  backend deployment link:
 
 https://s69-isthatcake-1.onrender.com
+
+
+### frontend deployment link:
+
