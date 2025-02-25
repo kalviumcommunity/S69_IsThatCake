@@ -1,5 +1,4 @@
 import React from "react";
-import './cakecard.css';
 
 const  UserCard=({image,name,description,rating,uploader})=>{
     return(

@@ -1,20 +1,25 @@
-// client/src/App.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import UserCard from './components/CakeCard';
+import CakeCard from './components/CakeCard'; // Ensure correct import
 
+
+
+  
 
 
 function App() {
-  // Dummy data for the cake
-  const cakeData = {
-    image: "https://preview.redd.it/o6wk4jkf64961.jpg?width=640&crop=smart&auto=webp&s=52c494257495b8ba9ccd5dff84c311114c99f765", // Link to a weird cake image
-    name: "The Moldy Cake",
-    description: "A cake that was left out too long. Don't eat it!",
-    rating: 2,
-    uploader: "CakeLover123"
-  };
+  const [cakes, setCakes]=useState([]);
 
+  useEffect(()=>{
+    fetch(`http://localhost:3000/api/items`)
+    .then((res)=>res.json())
+    .then((data) => {
+      console.log("Fetched cake data:", data);
+      setCakes(data.items);
+    })
+    .catch((err)=>console.log("Errors: ", err))
+  },[]);
+  
   return (
     <div className="app">
       <header className="hero">
@@ -23,10 +28,12 @@ function App() {
         <button>Explore Gallery</button>
       </header>
 
-     
       <section className="cake-gallery">
-        <UserCard {...cakeData} />
-        
+      {cakes.length > 0 ? (
+          cakes.map((cake) => <CakeCard key={cake._id} {...cake} />)
+        ) : (
+          <p>No cakes found!</p>
+        )}
       </section>
     </div>
   );
