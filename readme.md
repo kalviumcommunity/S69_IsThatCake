@@ -29,4 +29,6 @@ https://s69-isthatcake-1.onrender.com
 
 
 ### frontend deployment link:
+https://isthatcake.netlify.app/
+
 

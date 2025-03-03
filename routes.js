@@ -5,6 +5,7 @@ const Item=require('./model/items');
 
 router.post('/items',(req,res)=>{
     const {name}=req.body;
+    
     const newItem=new Item({name});
 
     newItem.save()
@@ -49,7 +50,7 @@ router.get('/items/:id',(req,res)=>{
 router.put('/items/:id',(req,res)=>{
     const {id}=req.params;
     const {name}=req.body;
-    Item.findByIdAndUpdate(id, { name }, { new: true })
+    Item.findByIdAndUpdate(id, { name}, { new: true })
         .then((item) => {
             if (!item) {
                 return res.status(404).json({ message: `Item with ID ${id} not found` });
@@ -76,5 +77,7 @@ router.delete('/items/:id',(req,res)=>{
         });
    
 });
+
+
 
 module.exports=router;
