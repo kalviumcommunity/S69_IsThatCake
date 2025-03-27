@@ -14,20 +14,27 @@ export default function SignupForm(){
     const handleSubmit=async(e)=>{
         e.preventDefault();
 
-        const response=await fetch("api/signup",{
-            method: "POST",
-            headers:{"Content-Type": "application/json"},
-            body: JSON.stringify(formData),
-        });
-
-        if(response.ok){
-            alert('Signup successful');
-            setFormData({name:" ", email: " ", password:" "});
-        }else{
-            alert("Signup failed. Try again.");
+    
+        try {
+            const response = await fetch("http://localhost:3000/api/signup", { // ✅ Ensure correct API URL
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+    
+            const data = await response.json(); // ✅ Parse response JSON
+    
+            if (response.ok) {
+                alert("Signup successful!");
+                setFormData({ name: "", email: "", password: "" });
+            } else {
+                alert(`Signup failed: ${data.message || "Try again."}`); // ✅ Show backend error
+            }
+        } catch (error) {
+            alert("Signup failed. Please check your connection.");
+            console.error("Signup Error:", error);
         }
     };
-
     return(
         <div className="signup-container">
             <h2>Sign Up</h2>
