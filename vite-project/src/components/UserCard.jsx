@@ -29,7 +29,7 @@ const UserCard = ({ id, image, name, description, rating, uploader, onDelete }) 
       <h2 className="usercard-name">{name}</h2>
       <p className="usercard-description">{description}</p>
       <div className="usercard-rating">Rating: {rating}</div>
-      <p className="usercard-uploader">Uploaded By: {uploader}</p>
+      <p className="usercard-uploader">Uploaded By: {uploader|| "Unknown" }</p>
 
       {/* Edit Button */}
       <Link to={`/update/${id}`}>
