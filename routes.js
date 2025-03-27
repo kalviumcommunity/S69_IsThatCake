@@ -1,6 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const Item=require('./model/items');
+const User=require("./model/user");
 
 
 router.post('/items',(req,res)=>{
@@ -77,6 +78,26 @@ router.delete('/items/:id',(req,res)=>{
         });
    
 });
+// Get all users for dropdown
+router.get("/users", async (req, res) => {
+    try {
+        const users = await User.find({}, "_id name");
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching users", error });
+    }
+});
+
+// Get items filtered by user
+router.get("/items/user/:userId", async (req, res) => {
+    try {
+        const items = await Item.find({ created_by: req.params.userId });
+        res.json(items);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching items", error });
+    }
+});
+
 
 
 
