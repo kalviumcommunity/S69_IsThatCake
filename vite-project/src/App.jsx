@@ -7,6 +7,8 @@ import UpdateCake from "./pages/UpdateEntity";
 
 function App() {
   const [cakes, setCakes] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3000/api/items")
