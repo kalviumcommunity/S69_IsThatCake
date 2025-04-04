@@ -3,8 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const routes = require("./routes"); // Ensure this is the correct path
-
+const routes = require("./routes/routes"); // Ensure this is the correct path
+const authRoutes=require("./routes/authRoutes");
 const app = express();
 app.use(express.json());
 
@@ -20,6 +20,7 @@ app.use(cors({
 
 // ✅ Use routes with "/api" prefix (REMOVE app.use(routes))
 app.use("/api", routes);
+app.use("/api/auth",authRoutes);
 
 // ✅ Connect to MongoDB
 mongoose
