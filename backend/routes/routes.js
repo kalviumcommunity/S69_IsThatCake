@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Item = require("./model/items");
-const User = require("./model/user");
+const Item = require("../model/items");
+const User = require("../model/user");
 const bcrypt=require("bcrypt");
 // ✅ Fix: Ensure "created_by" is required when adding an item
 router.post("/items", async (req, res) => {
@@ -116,5 +116,6 @@ router.post("/signup", async (req, res) => {
         res.status(500).json({ message: "Signup failed", error });
     }
 });
+
 
 module.exports = router;
