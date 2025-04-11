@@ -1,10 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
 
-router.use(cookieParser()); // Enable cookie parsing middleware
+// Use a secure secret in env
+const SECRET_KEY = process.env.JWT_SECRET || "your_fallback_secret_here";
 
-// Login Endpoint
+router.use(cookieParser()); // Middleware to read cookies
+
+// ✅ Login Endpoint
 router.post("/login", (req, res) => {
     const { username } = req.body;
 
@@ -12,25 +16,50 @@ router.post("/login", (req, res) => {
         return res.status(400).json({ message: "Username is required" });
     }
 
-    // Set the username in a cookie (expires in 1 day)
-    res.cookie("username", username, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+    // 🛠 Since you're not using a real DB here, we simulate a user object
+    const user = {
+        id: "fake_user_id", // Simulate user ID
+        username: username
+    };
 
-    return res.status(200).json({ message: "Login successful", username });
+    // ✅ Create JWT
+    const token = jwt.sign({ id: user.id, username: user.username }, SECRET_KEY, {
+        expiresIn: "1d"
+    });
+
+    // ✅ Set cookie
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "Strict",
+        maxAge: 24 * 60 * 60 * 1000
+    });
+
+    // ✅ Send response
+    return res.status(200).json({ message: "Login successful", token, username: user.username });
 });
 
-// Logout Endpoint
+
+
+// ✅ Logout Endpoint
 router.post("/logout", (req, res) => {
-    res.clearCookie("username"); // Remove cookie from browser
+    res.clearCookie("token"); // Should clear the 'token' cookie, not 'username'
     return res.status(200).json({ message: "Logout successful" });
 });
-
-// Check Login Status
 router.get("/check-auth", (req, res) => {
-    if (req.cookies.username) {
-        return res.status(200).json({ loggedIn: true, username: req.cookies.username });
-    } else {
+    const token = req.cookies.token;
+
+    if (!token) {
         return res.status(401).json({ loggedIn: false, message: "Not logged in" });
     }
+
+    try {
+        const decoded = jwt.verify(token, SECRET_KEY);
+        return res.status(200).json({ loggedIn: true, username: decoded.username });
+    } catch (err) {
+        return res.status(401).json({ loggedIn: false, message: "Invalid or expired token" });
+    }
 });
+
 
 module.exports = router;
